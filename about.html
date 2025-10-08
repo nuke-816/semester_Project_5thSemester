@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About – AutoRecon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">AutoRecon</h1>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="results.html"><i class="fas fa-chart-bar"></i> Results</a>
+                <a href="about.html" class="active"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2><i class="fas fa-cogs"></i> About AutoRecon</h2>
+
+        <div class="card">
+            <h3>What is Reconnaissance?</h3>
+            <p><strong>Reconnaissance</strong>, or information gathering, is the crucial first phase of any ethical hacking or penetration testing engagement. It involves gathering as much information as possible about the target system or network before attempting to find and exploit vulnerabilities. This passive data collection (like subdomain enumeration, port scanning, and technology identification) allows testers to build a comprehensive threat model and prioritize testing efforts.</p>
+        </div>
+        <hr>
+
+        <div class="card">
+            <h3>Key APIs and Data Sources</h3>
+            <p>AutoRecon aggregates data from powerful external APIs to provide a holistic view of the target's digital footprint.</p>
+            <ul>
+                <li><i class="fas fa-server"></i> **Shodan**: Used for identifying internet-connected devices, open ports, and banners (similar to Nmap).</li>
+                <li><i class="fas fa-globe"></i> **Censys**: Provides host data, certificate data, and detailed asset information globally.</li>
+                <li><i class="fas fa-binoculars"></i> **Zoomeye**: A Chinese cybersecurity search engine for network component and website information.</li>
+                <li><i class="fas fa-code-branch"></i> **Wappalyzer-Style Data**: Used internally for technology stack identification.</li>
+            </ul>
+        </div>
+        <hr>
+
+        <div class="card">
+            <h3>Team and Project Details</h3>
+            <p>This project was developed as a proof-of-concept for automated security tool development.</p>
+            <p><strong>Development Team:</strong></p>
+            <ul>
+                <li><i class="fas fa-user-tie"></i> Talal Rashid (Frontend Developer)</li>
+                <li><i class="fas fa-user-tie"></i> Muhammad Asim (Backend & API Integration)</li>
+                <li><i class="fas fa-user-tie"></i> Muhammad Sattar (Security Analysis & Data Structuring)</li>
+            </ul>
+            <p><strong>Supervisor:</strong> Ms Kanwal Aneeq(Comuputer Science Department)</p>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

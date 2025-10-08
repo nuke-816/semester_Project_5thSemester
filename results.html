@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results – AutoRecon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Specific CSS for results page tabs/classification */
+        .tab-controls {
+            display: flex;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+        .tab-btn {
+            background: none;
+            color: var(--color-text);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: color 0.3s, border-bottom 0.3s;
+            font-weight: 600;
+        }
+        .tab-btn:hover {
+            color: var(--color-primary);
+        }
+        .tab-btn.active {
+            color: var(--color-primary);
+            border-bottom: 3px solid var(--color-primary);
+        }
+        .tab-panel {
+            display: none;
+            padding: 1rem 0;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+
+        .classification-summary ul {
+            list-style: none;
+        }
+        .classification-summary li {
+            padding: 0.5rem 0;
+            margin-bottom: 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        .high-risk { color: #dc3545; }
+        .medium-risk { color: #ffc107; }
+        .low-risk { color: #28a745; }
+    </style>
+</head>
+<body class="results-page">
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">AutoRecon</h1>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="results.html" class="active"><i class="fas fa-chart-bar"></i> Results</a>
+                <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2><i class="fas fa-flask"></i> Scan Results Detail</h2>
+
+        <div class="card target-summary">
+            <h3>Target: <span id="target-name">...</span></h3>
+            <p><strong>IP Address:</strong> <span id="target-ip">...</span></p>
+            <p><strong>Scan Time:</strong> <span id="timestamp">...</span></p>
+            <button class="btn" style="margin-top: 1rem;"><i class="fas fa-file-download"></i> Download Report (PDF)</button>
+        </div>
+        <hr>
+
+        <div class="card scan-details">
+            <div class="tab-controls">
+                <button class="tab-btn active" data-tab="subdomains-panel"><i class="fas fa-sitemap"></i> Subdomains</button>
+                <button class="tab-btn" data-tab="ports-panel"><i class="fas fa-network-wired"></i> Open Ports</button>
+                <button class="tab-btn" data-tab="tech-panel"><i class="fas fa-layer-group"></i> Tech Stack</button>
+                <button class="tab-btn" data-tab="classification-panel"><i class="fas fa-shield-alt"></i> Classification</button>
+            </div>
+
+            <div id="subdomains-panel" class="tab-panel active">
+                <h4>Enumerated Subdomains</h4>
+                <table>
+                    <thead>
+                        <tr><th>Name</th><th>IP Address</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="ports-panel" class="tab-panel">
+                <h4>Discovered Ports and Services</h4>
+                <table>
+                    <thead>
+                        <tr><th>Port</th><th>Service</th><th>Product</th><th>Version</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="tech-panel" class="tab-panel">
+                <h4>Identified Technologies (Wappalyzer-style)</h4>
+                <table>
+                    <thead>
+                        <tr><th>Category</th><th>Technology</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <div id="classification-panel" class="tab-panel classification-summary">
+                <h4>Asset Security Classification</h4>
+                <p>A breakdown of identified security findings classified by severity.</p>
+                <ul id="classification-list">
+                    </ul>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
