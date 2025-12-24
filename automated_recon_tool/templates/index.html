@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Recon Tool</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-radar"></i> Automated Reconnaissance Tool</h1>
+            <p>Enter a target domain or IP to begin OSINT gathering.</p>
+        </header>
+
+        <section class="scan-section">
+            <form id="scan-form">
+                <input type="text" id="target-input" placeholder="e.g., example.com or 8.8.8.8" required>
+                <button type="submit" id="start-scan-btn"><i class="fas fa-bolt"></i> Start Scan</button>
+            </form>
+            <div id="loading-spinner" class="hidden">
+                <i class="fas fa-spinner fa-spin"></i> Processing target...
+            </div>
+        </section>
+
+        <section class="results-section">
+            <h2>Recent Scans</h2>
+            <table id="recent-scans-table">
+                <thead>
+                    <tr>
+                        <th>Target</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </section>
+    </div>
+
+    <div id="toast-notification" class="hidden"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
